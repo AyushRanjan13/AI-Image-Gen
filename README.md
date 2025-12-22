@@ -34,6 +34,31 @@ This project follows **industry-correct ML deployment practices**:
 
 ```
 
+## 📊 CLIP-Based Evaluation
+
+To quantitatively evaluate text–image alignment, this project uses **CLIP (Contrastive Language–Image Pretraining)**.
+
+The model computes a similarity score between:
+- The generated image
+- The input text prompt
+
+Higher scores indicate better semantic alignment.
+
+### 🔍 Example Output
+
+![CLIP Similarity Score](CLIP_Score.png)
+
+## 🔥 Sample Outputs
+
+### Text → Image Generation
+Prompt:
+> "ultra-detailed portrait of a red fox wearing a tiny scarf"
+
+![Output 1](AI_Generated_Image.png)
+
+---
+
+
 ### Core Principles
 
 - Frontend **never touches the ML model**
