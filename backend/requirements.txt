@@ -1,0 +1,20 @@
+fastapi>=0.110
+uvicorn[standard]>=0.30
+python-multipart>=0.0.9
+
+torch==2.4.1
+torchvision==0.19.1
+torchaudio==2.4.1
+
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+diffusers>=0.30
+transformers>=4.40
+accelerate>=0.30
+huggingface-hub>=0.23
+safetensors>=0.4
+
+numpy>=1.26
+pillow>=10.0
+requests>=2.31
+tqdm>=4.66

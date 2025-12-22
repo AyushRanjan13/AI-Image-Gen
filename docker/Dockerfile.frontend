@@ -1,0 +1,11 @@
+FROM python:3.10-slim
+
+WORKDIR /app
+
+RUN pip install streamlit requests pillow
+
+COPY frontend frontend
+
+EXPOSE 8501
+
+CMD ["streamlit", "run", "frontend/ui.py", "--server.port=8501", "--server.address=0.0.0.0"]
