@@ -141,7 +141,7 @@ This prevents:
 
 ## 🎨 Frontend (Streamlit)
 
-* Prompt + negative prompt input
+* Prompt input
 * Sends HTTP request to backend
 * Displays generated image from response bytes
 * API URL controlled via environment variable
