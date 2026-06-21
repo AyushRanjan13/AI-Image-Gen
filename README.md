@@ -48,6 +48,81 @@ Higher scores indicate better semantic alignment.
 
 ![CLIP Similarity Score](CLIP_Score.png)
 
+## 🧠 CLIP Prompt Engineering & Prompt Ensembling
+
+To evaluate generated images beyond simple text matching, this project incorporates techniques inspired by the OpenAI CLIP paper's prompt engineering methodology.
+
+### Prompt Engineering
+
+CLIP classifies and evaluates images by comparing image embeddings with text embeddings. The paper demonstrates that the wording of a text prompt can significantly impact performance.
+
+Instead of using a raw label such as:
+
+```text
+fox
+```
+
+natural language descriptions are used:
+
+```text
+a photo of a fox.
+a high quality photo of a fox.
+an image of a fox.
+```
+
+These prompts better align with the image-caption pairs on which CLIP was originally trained, leading to stronger text-image semantic matching.
+
+### Prompt Ensembling
+
+A single prompt may capture only one view of a concept. To obtain a more robust text representation, multiple prompt templates are used for the same concept.
+
+Example:
+
+```text
+a photo of a fox.
+a picture of a fox.
+a photograph of a fox.
+a bright photo of a fox.
+a photo of a small fox.
+```
+
+CLIP embeddings are generated for each prompt and then averaged in the embedding space:
+
+```text
+Final Text Embedding =
+Average(
+    Embedding(prompt_1),
+    Embedding(prompt_2),
+    ...
+    Embedding(prompt_n)
+)
+```
+
+The averaged embedding provides a more stable representation and reduces sensitivity to prompt wording.
+
+### Benefits
+
+* Improved text-image alignment evaluation
+* More robust semantic representations
+* Reduced prompt bias
+* Better zero-shot performance
+* No additional model training required
+* Computationally efficient since averaged embeddings can be cached
+
+### Implemented Techniques
+
+This implementation reproduces key concepts from Section 3.1.4 of the OpenAI CLIP paper:
+
+✅ Prompt Engineering
+
+✅ Prompt Ensembling in Embedding Space
+
+The complete CLIP implementation used for experimentation and evaluation can be found here:
+
+🔗 **CLIP Implementation Repository:**
+https://github.com/AyushRanjan13/CLIP_Implementation
+
+
 ## 🔥 Sample Outputs
 
 ### Text → Image Generation
